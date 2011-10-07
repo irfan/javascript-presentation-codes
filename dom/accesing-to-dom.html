@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<title>Acccesing to DOM</title>
+	</head>
+	<body>
+		<h3>Bad way</h3>
+<pre>
+function innerHtmlBadWay(){
+	for (var i = 0; i < 10000; i++){
+		document.getElementById('myDiv').innerHTML += 'x';
+	}
+}
+innerHtmlBadWay();
+</pre>
+<h3>Good way</h3>
+<pre>
+function innerHtmlGoodWay(){
+	var content = 'x';
+	for (var i = 0; i < 10000; i++){
+		content += 'x';
+	}
+	document.getElementById('myDiv').innerHTML += content;
+}
+innerHtmlGoodWay();
+</pre>
+		<div id="myDiv"></div>
+		<h3>Results</h3>
+		<dl>
+			<dt>Bad Way: </dt>
+			<dd id="badWay"></dd>
+			<dt>Good Way: </dt>
+			<dd id="goodWay"></dd>
+		</dl>
+		<script src="js/accesing-to-dom.js"></script>
+	</body>
+</html>
